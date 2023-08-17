@@ -17,13 +17,21 @@ const createGrid = (numOfGrid) => {
       boxDivs.style.width = `${witdhAndHeight}px`;
       boxDivs.style.height = `${witdhAndHeight}px`;
       boxDivs.addEventListener('mouseenter', () => {
-        boxDivs.style.backgroundColor = 'black';
+        boxDivs.style.backgroundColor = randomRGB();
       })
       rowDivs.appendChild(boxDivs);
     }
     tempDiv.appendChild(rowDivs);
   }
   container.appendChild(tempDiv);
+}
+
+function randomRGB() {
+  const red = Math.floor(Math.random() * 256);
+  const green = Math.floor(Math.random() * 256);
+  const blue = Math.floor(Math.random() * 256);
+
+  return `rgb(${red}, ${green}, ${blue})`;
 }
 
 resetButton.addEventListener('click', () => {
